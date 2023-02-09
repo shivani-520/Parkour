@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float walkSpeed;
     [SerializeField] float sprintSpeed;
     [SerializeField] float slideSpeed;
+    [SerializeField] float wallRunSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -55,9 +56,10 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     public MovementState state;
-    public enum MovementState { walking, sprinting, crouching, sliding, air }
+    public enum MovementState { walking, sprinting, crouching, sliding, wallrunning, air }
 
     public bool sliding;
+    public bool wallRunning;
 
 
     private void Start()
@@ -124,8 +126,15 @@ public class PlayerMovement : MonoBehaviour
 
     void StateHandler()
     {
+        // Wallrunning
+        if(wallRunning)
+        {
+            state = MovementState.wallrunning;
+            desiredMoveSpeed = wallRunSpeed;
+        }
+
         // sliding
-        if(sliding)
+        else if(sliding)
         {
             state = MovementState.sliding;
 
