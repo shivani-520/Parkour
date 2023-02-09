@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float sprintSpeed;
     [SerializeField] float slideSpeed;
     [SerializeField] float wallRunSpeed;
+    [SerializeField] float airMinSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -56,13 +57,27 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     public MovementState state;
-    public enum MovementState { walking, sprinting, crouching, sliding, wallrunning, air }
+    public enum MovementState 
+    {
+        walking, 
+        sprinting, 
+        crouching,
+        sliding, 
+        wallrunning,
+        freeze,
+        unlimited,
+        air 
+    }
 
     public bool sliding;
     public bool wallRunning;
+    public bool freeze;
+    public bool unlimited;
+    public bool restricted;
 
     [SerializeField] private PlayerCamera cam;
 
+    private bool keepMomentum;
 
     private void Start()
     {
@@ -128,8 +143,21 @@ public class PlayerMovement : MonoBehaviour
 
     void StateHandler()
     {
+        // freeze
+        if(freeze)
+        {
+            state = MovementState.freeze;
+            rb.velocity = Vector3.zero;
+            desiredMoveSpeed = 0f;
+        }
+        // unlimited
+        else if(unlimited)
+        {
+            state = MovementState.unlimited;
+            moveSpeed = 999f;
+        }
         // Wallrunning
-        if(wallRunning)
+        else if(wallRunning)
         {
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallRunSpeed;
@@ -143,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
             if(OnSlope() && rb.velocity.y < 0.1f)
             {
                 desiredMoveSpeed = slideSpeed;
+                keepMomentum = true;
             }
             else
             {
@@ -177,20 +206,33 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             state = MovementState.air;
+
+            if(moveSpeed < airMinSpeed)
+            {
+                desiredMoveSpeed = airMinSpeed;
+            }
         }
 
-        // check if desired move speed has changed drastically
-        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
+        bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+
+        if(desiredMoveSpeedHasChanged)
         {
-            StopAllCoroutines();
-            StartCoroutine(SmoothLerpMoveSpeed());
-        }
-        else
-        {
-            moveSpeed = desiredMoveSpeed;
+            if(keepMomentum)
+            {
+                StopAllCoroutines();
+                StartCoroutine(SmoothLerpMoveSpeed());
+            }
+            else
+            {
+                moveSpeed = desiredMoveSpeed;
+            }
         }
 
         lastDesiredMoveSpeed = desiredMoveSpeed;
+
+        // deactivate keepMomentum
+        if (Mathf.Abs(desiredMoveSpeed - moveSpeed) < 0.1f) keepMomentum = false;
+
     }
 
     IEnumerator SmoothLerpMoveSpeed()
@@ -223,6 +265,8 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
+        if (restricted) return;
+
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         // on slope
