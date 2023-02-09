@@ -61,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding;
     public bool wallRunning;
 
+    [SerializeField] private PlayerCamera cam;
+
 
     private void Start()
     {
@@ -160,12 +162,16 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
+
+            cam.FOVChange(80f);
         }
         // walking
         else if(grounded)
         {
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
+
+            cam.FOVChange(60f);
         }
         // air
         else

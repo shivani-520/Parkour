@@ -42,6 +42,7 @@ public class PlayerWallRun : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Transform orientation;
+    [SerializeField] PlayerCamera cam;
     private PlayerMovement movement;
     private Rigidbody rb;
 
@@ -142,6 +143,11 @@ public class PlayerWallRun : MonoBehaviour
         wallRunTimer = maxWallRunTime;
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        // apply camera effects
+        cam.FOVChange(70f);
+        if (wallLeft) cam.TiltChange(-15f);
+        if (wallRight) cam.TiltChange(15f);
     }
 
     void WallRunMovement()
@@ -187,6 +193,10 @@ public class PlayerWallRun : MonoBehaviour
     void StopWallRun()
     {
         movement.wallRunning = false;
+
+        // reset camera effects
+        cam.FOVChange(60f);
+        cam.TiltChange(0f);
     }
 
     void WallJump()
