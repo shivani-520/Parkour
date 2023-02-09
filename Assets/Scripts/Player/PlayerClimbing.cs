@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerClimbing : MonoBehaviour
 {
+    public InputMaster inputMaster;
+
     [Header("References")]
     private PlayerMovement movement;
     [SerializeField] Transform orientation;
@@ -20,7 +23,6 @@ public class PlayerClimbing : MonoBehaviour
     [SerializeField] bool holding;
 
     [Header("Ledge Jumping")]
-    [SerializeField] KeyCode jumpKey = KeyCode.Space;
     [SerializeField] float ledgeJumpForwardForce;
     [SerializeField] float ledgeJumpUpwardsForce;
 
@@ -39,6 +41,24 @@ public class PlayerClimbing : MonoBehaviour
     [SerializeField] float exitLedgeTime;
     private float exitLedgeTimer;
 
+    Vector2 move;
+    bool jump = false;
+
+    private void OnEnable()
+    {
+        inputMaster.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputMaster.Disable();
+    }
+
+    private void Awake()
+    {
+        inputMaster = new InputMaster();
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -49,13 +69,20 @@ public class PlayerClimbing : MonoBehaviour
     {
         LedgeDetection();
         SubStateMachine();
+        MyInput();
+    }
+
+    void MyInput()
+    {
+        move = inputMaster.Player.Movement.ReadValue<Vector2>();
+
+        inputMaster.Player.Jump.performed += context => jump = true;
+        inputMaster.Player.Jump.canceled += context => jump = false;
     }
 
     void SubStateMachine()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-        bool anyInputKeyPressed = horizontalInput != 0 || verticalInput != 0;
+        bool anyInputKeyPressed = move.x != 0 || move.y != 0;
 
         // holding onto ledge
         if(holding)
@@ -66,7 +93,7 @@ public class PlayerClimbing : MonoBehaviour
 
             if (timeOnLedge > minTimeOnLedge && anyInputKeyPressed) ExitLedgeHold();
 
-            if (Input.GetKeyDown(jumpKey)) LedgeJump();
+            if (jump) LedgeJump();
         }
 
         // exiting
@@ -108,7 +135,6 @@ public class PlayerClimbing : MonoBehaviour
     {
         holding = true;
 
-        movement.unlimited = true;
         movement.restricted = true;
 
         currentLedge = ledgeHit.transform;
@@ -138,7 +164,6 @@ public class PlayerClimbing : MonoBehaviour
         else
         {
             if (!movement.freeze) movement.freeze = true;
-            if (movement.unlimited) movement.unlimited = false;
         }
 
         // exiting if something goes wrong

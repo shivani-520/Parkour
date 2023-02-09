@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerWallRun : MonoBehaviour
 {
+    public InputMaster inputMaster;
+
     [Header("Wall Running")]
     [SerializeField] LayerMask whatIsWall;
     [SerializeField] LayerMask whatIsGround;
@@ -15,13 +18,8 @@ public class PlayerWallRun : MonoBehaviour
     private float wallRunTimer;
 
     [Header("Input")]
-    [SerializeField] KeyCode jumpKey = KeyCode.Space;
-    [SerializeField] KeyCode upwardsRunKey = KeyCode.LeftShift;
-    [SerializeField] KeyCode downwardsRunKey = KeyCode.LeftControl;
-    private bool upwardsRunning;
-    private bool downwardsRunning;
-    private float horizontalInput;
-    private float verticalInput;
+    Vector2 move;
+    bool jump = false;
 
     [Header("Detection")]
     [SerializeField] float wallCheckDistance;
@@ -46,6 +44,21 @@ public class PlayerWallRun : MonoBehaviour
     private PlayerMovement movement;
     private Rigidbody rb;
 
+    private void OnEnable()
+    {
+        inputMaster.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputMaster.Disable();
+    }
+
+    private void Awake()
+    {
+        inputMaster = new InputMaster();
+    }
+
     private void Start()
     {
         movement = GetComponent<PlayerMovement>();
@@ -56,6 +69,7 @@ public class PlayerWallRun : MonoBehaviour
     {
         CheckForWall();
         StateMachine();
+        MyInput();
     }
 
     private void FixedUpdate()
@@ -64,6 +78,14 @@ public class PlayerWallRun : MonoBehaviour
         {
             WallRunMovement();
         }
+    }
+
+    void MyInput()
+    {
+        move = inputMaster.Player.Movement.ReadValue<Vector2>();
+
+        inputMaster.Player.Jump.performed += context => jump = true;
+        inputMaster.Player.Jump.canceled += context => jump = false;
     }
 
     void CheckForWall()
@@ -79,15 +101,8 @@ public class PlayerWallRun : MonoBehaviour
 
     void StateMachine()
     {
-        // getting input
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        upwardsRunning = Input.GetKey(upwardsRunKey);
-        downwardsRunning = Input.GetKey(downwardsRunKey);
-
         // wall running
-        if((wallLeft || wallRight) && verticalInput > 0 && AboveGround() && !exitingWall)
+        if((wallLeft || wallRight) && move.y > 0 && AboveGround() && !exitingWall)
         {
             // start wall run
             if(!movement.wallRunning)
@@ -105,7 +120,7 @@ public class PlayerWallRun : MonoBehaviour
                 exitWallTimer = exitWallTime;
             }
             // wall jump
-            if(Input.GetKeyDown(jumpKey))
+            if(jump)
             {
                 WallJump();
             }
@@ -166,18 +181,8 @@ public class PlayerWallRun : MonoBehaviour
         // forward force
         rb.AddForce(wallForward * wallRunForce, ForceMode.Force);
 
-        // upwards/downwards force
-        if(upwardsRunning)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, wallClimbSpeed, rb.velocity.z);
-        }
-        if (downwardsRunning)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, -wallClimbSpeed, rb.velocity.z);
-        }
-
         // push to wall force
-        if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0))
+        if (!(wallLeft && move.x > 0) && !(wallRight && move.y < 0))
         {
             rb.AddForce(-wallNormal * 100, ForceMode.Force);
         }

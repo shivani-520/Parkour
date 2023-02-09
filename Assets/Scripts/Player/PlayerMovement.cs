@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public InputMaster inputMaster;
+
     [Header("Movement")]
     float moveSpeed;
     [SerializeField] float walkSpeed;
@@ -24,17 +27,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMultiplier;
-    bool readyToJump;
+    public bool readyToJump;
 
     [Header("Crouching")]
     [SerializeField] float crouchSpeed;
     [SerializeField] float crouchYScale;
     private float startYScale;
-
-    [Header("Keybinds")]
-    [SerializeField] KeyCode jumpKey = KeyCode.Space;
-    [SerializeField] KeyCode sprintKey = KeyCode.LeftShift;
-    [SerializeField] KeyCode crouchKey = KeyCode.C;
 
     [Header("Ground Check")]
     [SerializeField] float playerHeight;
@@ -49,8 +47,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Transform orientation;
 
-    float horizontalInput;
-    float verticalInput;
+    Vector2 move;
+    bool jump = false;
+    bool crouch = false;
+    bool sprint = false;
 
     Vector3 moveDirection;
 
@@ -65,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
         sliding, 
         wallrunning,
         freeze,
-        unlimited,
         air 
     }
 
@@ -79,8 +78,25 @@ public class PlayerMovement : MonoBehaviour
 
     private bool keepMomentum;
 
+    private void OnEnable()
+    {
+        inputMaster.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputMaster.Disable();
+    }
+
+
+    private void Awake()
+    {
+        inputMaster = new InputMaster();
+    }
+
     private void Start()
     {
+
         readyToJump = true;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -116,10 +132,18 @@ public class PlayerMovement : MonoBehaviour
 
     void MyInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        move = inputMaster.Player.Movement.ReadValue<Vector2>();
+        inputMaster.Player.Jump.performed += context => jump = true;
+        inputMaster.Player.Jump.canceled += context => jump = false;
 
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        inputMaster.Player.Crouch.performed += context => crouch = true;
+        inputMaster.Player.Crouch.canceled += context => crouch = false;
+
+        inputMaster.Player.Sprint.performed += context => sprint = true;
+        inputMaster.Player.Sprint.canceled += context => sprint = false;
+
+
+        if(jump && readyToJump && grounded)
         {
             readyToJump = false;
 
@@ -129,13 +153,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // start crouching
-        if(Input.GetKeyDown(crouchKey))
+        if(crouch)
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
         }
         // stop crouching
-        if (Input.GetKeyUp(crouchKey))
+        if (!crouch)
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
@@ -149,12 +173,6 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.freeze;
             rb.velocity = Vector3.zero;
             desiredMoveSpeed = 0f;
-        }
-        // unlimited
-        else if(unlimited)
-        {
-            state = MovementState.unlimited;
-            moveSpeed = 999f;
         }
         // Wallrunning
         else if(wallRunning)
@@ -180,14 +198,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // crouching
-        else if(Input.GetKey(crouchKey))
+        else if(crouch)
         {
             state = MovementState.crouching;
             desiredMoveSpeed = crouchSpeed;
         }
 
         // sprinting
-        else if(grounded && Input.GetKey(sprintKey))
+        else if(grounded && sprint)
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
@@ -268,7 +286,7 @@ public class PlayerMovement : MonoBehaviour
         if (restricted) return;
 
         // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        moveDirection = orientation.forward * move.y + orientation.right * move.x;
         // on slope
         if (OnSlope() && !exitingSlope)
         {

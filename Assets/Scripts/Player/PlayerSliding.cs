@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerSliding : MonoBehaviour
 {
+    public InputMaster inputMaster;
+
     [Header("References")]
     [SerializeField] Transform orientation;
     [SerializeField] Transform playerGfx;
@@ -19,10 +22,23 @@ public class PlayerSliding : MonoBehaviour
     private float startYScale;
 
     [Header("Input")]
-    [SerializeField] KeyCode slideKey = KeyCode.LeftControl;
-    private float horizontalInput;
-    private float verticalInput;
+    Vector2 move;
+    bool slide = false;
 
+    private void Awake()
+    {
+        inputMaster = new InputMaster();
+    }
+
+    private void OnEnable()
+    {
+        inputMaster.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputMaster.Disable();
+    }
 
     private void Start()
     {
@@ -32,16 +48,26 @@ public class PlayerSliding : MonoBehaviour
         startYScale = playerGfx.localScale.y;
     }
 
+    void MyInput()
+    {
+        move = inputMaster.Player.Movement.ReadValue<Vector2>();
+
+        inputMaster.Player.Slide.performed += context => slide = true;
+        inputMaster.Player.Slide.canceled += context => slide = false;
+    }
+
     private void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        MyInput();
 
-        if(Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0))
+        //horizontalInput = Input.GetAxisRaw("Horizontal");
+        //verticalInput = Input.GetAxisRaw("Vertical");
+
+        if(slide && (move.x != 0 || move.y != 0))
         {
             StartSlide();
         }
-        if(Input.GetKeyUp(slideKey) && movement.sliding)
+        if(!slide && movement.sliding)
         {
             StopSlide();
         }
@@ -67,7 +93,7 @@ public class PlayerSliding : MonoBehaviour
 
     void SlidingMovement()
     {
-        Vector3 inputDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        Vector3 inputDirection = orientation.forward * move.y + orientation.right * move.x;
 
         // sliding normal
         if(!movement.OnSlope() || rb.velocity.y > -0.1f)
