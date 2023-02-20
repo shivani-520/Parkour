@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ground Check")]
     [SerializeField] float playerHeight;
     [SerializeField] LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded;
     [SerializeField] Transform groundCheck;
 
     [Header("Slope Handling")]
@@ -47,14 +47,17 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Transform orientation;
 
+    [HideInInspector]
     Vector2 move;
     bool jump = false;
     bool crouch = false;
-    bool sprint = false;
+    public bool sprint = false;
 
-    Vector3 moveDirection;
+    public Vector3 moveDirection;
 
     Rigidbody rb;
+
+    [SerializeField] private StaminaBar stamina;
 
     public MovementState state;
     public enum MovementState 
@@ -205,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // sprinting
-        else if(grounded && sprint)
+        else if(grounded && sprint && stamina.currentStamina >= 3f)
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
@@ -356,9 +359,11 @@ public class PlayerMovement : MonoBehaviour
 
     public bool OnSlope()
     {
-        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        Debug.DrawRay(transform.position, Vector3.down, Color.red);
+        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.05f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+
             return angle < maxSlopeAngle && angle != 0;
         }
 
