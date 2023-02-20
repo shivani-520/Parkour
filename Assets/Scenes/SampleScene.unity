@@ -659,8 +659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamepadSensX: 400
   gamepadSensY: 400
-  mouseSensX: 100
-  mouseSensY: 100
+  mouseSensX: 50
+  mouseSensY: 50
   orientation: {fileID: 1791609253}
   cameraHolder: {fileID: 77996359}
 --- !u!1 &364846823 stripped
@@ -958,8 +958,8 @@ MonoBehaviour:
   maxLedgeGrabDistance: 2
   minTimeOnLedge: 0.5
   holding: 0
-  ledgeJumpForwardForce: 6
-  ledgeJumpUpwardsForce: 3
+  ledgeJumpForwardForce: 5
+  ledgeJumpUpwardsForce: 5
   ledgeDetectionLength: 3
   ledgeSphereCastRadius: 0.5
   whatIsLedge:
