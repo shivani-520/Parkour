@@ -208,12 +208,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // sprinting
-        else if(grounded && sprint && stamina.currentStamina >= 3f)
+        else if(grounded && sprint)
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
 
             cam.FOVChange(80f);
+            StaminaBar.instance.UseStamina(1);
         }
         // walking
         else if(grounded)

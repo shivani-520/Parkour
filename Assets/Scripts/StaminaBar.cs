@@ -5,29 +5,73 @@ using UnityEngine.UI;
 
 public class StaminaBar : MonoBehaviour
 {
-    private float startStamina = 50;
-    public float currentStamina;
-    public Slider sliderStamina;
+    [SerializeField] private Slider staminaBar;
+    [SerializeField] private GameObject slider;
+
+    private int maxStamina = 200;
+    private int currentStamina;
+
+    private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
+    private Coroutine regen;
+
+    public static StaminaBar instance;
+    [SerializeField] private PlayerMovement movement;
+
+    private void Awake()
+    {
+        instance = this;
+
+    }
 
     private void Start()
     {
-        currentStamina = startStamina;
+        currentStamina = maxStamina;
+        staminaBar.maxValue = maxStamina;
+        staminaBar.value = currentStamina;
     }
 
     private void Update()
     {
-        currentStamina += 10f;
-        sliderStamina.value = currentStamina;
-
-        if(currentStamina >= 50)
+        if(currentStamina >= maxStamina)
         {
-            currentStamina = 50;
+            slider.SetActive(false);
         }
     }
 
-    public void TakeStamina(float amount)
+    public void UseStamina(int amount)
     {
-        currentStamina -= amount;
-        sliderStamina.value = currentStamina;
+        if(currentStamina - amount >= 0)
+        {
+            currentStamina -= amount;
+            staminaBar.value = currentStamina;
+
+            if(regen != null)
+            {
+                StopCoroutine(regen);
+            }
+
+            regen = StartCoroutine(RegenStamina());
+            movement.sprint = true;
+        }
+        else
+        {
+            movement.sprint = false;
+            Debug.Log("Not enough stamina");
+        }
+        slider.SetActive(true);
+    }
+
+    private IEnumerator RegenStamina()
+    {
+        yield return new WaitForSeconds(2);
+
+        while(currentStamina <= maxStamina)
+        {
+            currentStamina += 3;
+            staminaBar.value = currentStamina;
+            yield return regenTick;
+        }
+
+        regen = null;
     }
 }
