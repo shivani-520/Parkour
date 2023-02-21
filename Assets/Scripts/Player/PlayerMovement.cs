@@ -55,9 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 moveDirection;
 
-    Rigidbody rb;
-
-    [SerializeField] private StaminaBar stamina;
+    private Rigidbody rb;
+    private StaminaBar stamina;
 
     public MovementState state;
     public enum MovementState 
@@ -214,7 +213,7 @@ public class PlayerMovement : MonoBehaviour
             desiredMoveSpeed = sprintSpeed;
 
             cam.FOVChange(80f);
-            StaminaBar.instance.UseStamina(1);
+            StaminaBar.instance.UseStamina(30f);
         }
         // walking
         else if(grounded)

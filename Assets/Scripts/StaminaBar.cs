@@ -8,10 +8,10 @@ public class StaminaBar : MonoBehaviour
     [SerializeField] private Slider staminaBar;
     [SerializeField] private GameObject slider;
 
-    private int maxStamina = 200;
-    private int currentStamina;
+    [SerializeField] private float maxStamina = 100;
+    public float currentStamina;
 
-    private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
+    private WaitForSeconds regenTick = new WaitForSeconds(0.02f);
     private Coroutine regen;
 
     public static StaminaBar instance;
@@ -35,14 +35,14 @@ public class StaminaBar : MonoBehaviour
         if(currentStamina >= maxStamina)
         {
             slider.SetActive(false);
-        }
+        } 
     }
 
-    public void UseStamina(int amount)
+    public void UseStamina(float amount)
     {
-        if(currentStamina - amount >= 0)
+        if(currentStamina >= 0)
         {
-            currentStamina -= amount;
+            currentStamina -= amount * Time.deltaTime;
             staminaBar.value = currentStamina;
 
             if(regen != null)
@@ -63,11 +63,11 @@ public class StaminaBar : MonoBehaviour
 
     private IEnumerator RegenStamina()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
 
-        while(currentStamina <= maxStamina)
+        while(currentStamina < maxStamina)
         {
-            currentStamina += 3;
+            currentStamina += maxStamina * Time.deltaTime;
             staminaBar.value = currentStamina;
             yield return regenTick;
         }

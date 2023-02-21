@@ -1051,7 +1051,6 @@ MonoBehaviour:
   orientation: {fileID: 1791609253}
   sprint: 0
   moveDirection: {x: 0, y: 0, z: 0}
-  stamina: {fileID: 0}
   state: 0
   sliding: 0
   wallRunning: 0
@@ -2782,6 +2781,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 1669764416}
   slider: {fileID: 1669764414}
+  maxStamina: 75
+  currentStamina: 0
   movement: {fileID: 442334671}
 --- !u!4 &1575610514
 Transform:
