@@ -16,14 +16,15 @@ public class PlayerSliding : MonoBehaviour
     [Header("Sliding")]
     [SerializeField] float maxSlideTime;
     [SerializeField] float slideForce;
-    private float slideTimer;
+    [SerializeField] float slideTimer;
 
     [SerializeField] float slideYScale;
     private float startYScale;
 
     [Header("Input")]
     Vector2 move;
-    bool slide = false;
+    public bool slide = false;
+
 
     private void Awake()
     {
@@ -52,16 +53,13 @@ public class PlayerSliding : MonoBehaviour
     {
         move = inputMaster.Player.Movement.ReadValue<Vector2>();
 
-        inputMaster.Player.Slide.performed += context => slide = true;
-        inputMaster.Player.Slide.canceled += context => slide = false;
+        inputMaster.Player.Slide.started += context => slide = true;
+        inputMaster.Player.Slide.performed += context => slide = false;
     }
 
     private void Update()
     {
         MyInput();
-
-        //horizontalInput = Input.GetAxisRaw("Horizontal");
-        //verticalInput = Input.GetAxisRaw("Vertical");
 
         if(slide && (move.x != 0 || move.y != 0))
         {
@@ -100,7 +98,7 @@ public class PlayerSliding : MonoBehaviour
         {
             rb.AddForce(inputDirection.normalized * slideForce, ForceMode.Force);
 
-            slideTimer -= Time.deltaTime;
+            slideTimer -= Time.fixedDeltaTime;
         }
         // sliding down a slope
         else
@@ -121,4 +119,5 @@ public class PlayerSliding : MonoBehaviour
 
         playerGfx.localScale = new Vector3(playerGfx.localScale.x, startYScale, playerGfx.localScale.z);
     }
+
 }

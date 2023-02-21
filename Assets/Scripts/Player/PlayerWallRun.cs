@@ -153,6 +153,7 @@ public class PlayerWallRun : MonoBehaviour
 
     void StartWallRun()
     {
+
         movement.wallRunning = true;
 
         wallRunTimer = maxWallRunTime;
@@ -197,6 +198,7 @@ public class PlayerWallRun : MonoBehaviour
 
     void StopWallRun()
     {
+
         movement.wallRunning = false;
 
         // reset camera effects
