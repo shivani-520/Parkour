@@ -2143,7 +2143,7 @@ PrefabInstance:
     - target: {fileID: 281855664364225751, guid: bbad3b136fa9298408b255e9551ddb4c,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bbad3b136fa9298408b255e9551ddb4c,
         type: 3}
@@ -2780,8 +2780,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fa7a2ad1e115244a4dd0d97314c858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStamina: 0
-  sliderStamina: {fileID: 1669764416}
+  staminaBar: {fileID: 1669764416}
+  slider: {fileID: 1669764414}
+  movement: {fileID: 442334671}
 --- !u!4 &1575610514
 Transform:
   m_ObjectHideFlags: 0
