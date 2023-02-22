@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float crouchYScale;
     private float startYScale;
 
+
     [Header("Ground Check")]
     [SerializeField] float playerHeight;
     [SerializeField] LayerMask whatIsGround;
@@ -141,8 +142,17 @@ public class PlayerMovement : MonoBehaviour
         inputMaster.Player.Crouch.performed += context => crouch = true;
         inputMaster.Player.Crouch.canceled += context => crouch = false;
 
-        inputMaster.Player.Sprint.performed += context => sprint = true;
-        inputMaster.Player.Sprint.canceled += context => sprint = false;
+
+        // Prevent sprinting when standing still
+        if(move.magnitude > 0.1f)
+        {
+            inputMaster.Player.Sprint.performed += context => sprint = true;
+            inputMaster.Player.Sprint.canceled += context => sprint = false;
+        }
+        else
+        {
+            sprint = false;
+        }
 
 
         if(jump && readyToJump && grounded)

@@ -17,7 +17,8 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] float mouseSensY;
 
     [SerializeField] Transform orientation;
-    [SerializeField] Transform cameraHolder;
+    public Transform cameraHolder;
+    public Camera mainCamera;
 
     float xRotation;
     float yRotation;

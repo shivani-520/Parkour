@@ -25,6 +25,8 @@ public class PlayerSliding : MonoBehaviour
     Vector2 move;
     public bool slide = false;
 
+    [SerializeField] private PlayerCamera cam;
+
 
     private void Awake()
     {

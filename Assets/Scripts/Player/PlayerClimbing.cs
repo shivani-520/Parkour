@@ -115,6 +115,7 @@ public class PlayerClimbing : MonoBehaviour
         if (ledgeHit.transform == lastLedge) return;
 
         if (distanceToLedge < maxLedgeGrabDistance & !holding) EnterLedgeHold();
+
     }
 
     void LedgeJump()
