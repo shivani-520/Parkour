@@ -47,6 +47,7 @@ public class PlayerSliding : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
 
         startYScale = playerGfx.localScale.y;
+        slideTimer = maxSlideTime;
     }
 
     void MyInput()
@@ -54,7 +55,7 @@ public class PlayerSliding : MonoBehaviour
         move = inputMaster.Player.Movement.ReadValue<Vector2>();
 
         inputMaster.Player.Slide.started += context => slide = true;
-        inputMaster.Player.Slide.performed += context => slide = false;
+        inputMaster.Player.Slide.canceled += context => slide = false;
     }
 
     private void Update()
@@ -65,6 +66,7 @@ public class PlayerSliding : MonoBehaviour
         {
             StartSlide();
         }
+
         if(!slide && movement.sliding)
         {
             StopSlide();
@@ -76,17 +78,23 @@ public class PlayerSliding : MonoBehaviour
         if(movement.sliding)
         {
             SlidingMovement();
+
+            slideTimer -= Time.fixedDeltaTime;
+            if (slideTimer <= 0)
+            {
+                StopSlide();
+                Invoke(nameof(CanSlideAgain), 3f);
+            }
         }
     }
 
     void StartSlide()
     {
         movement.sliding = true;
-
+        slide = true;
         playerGfx.localScale = new Vector3(playerGfx.localScale.x, slideYScale, playerGfx.localScale.z);
         rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
-        slideTimer = maxSlideTime;
     }
 
     void SlidingMovement()
@@ -105,19 +113,19 @@ public class PlayerSliding : MonoBehaviour
         {
             rb.AddForce(movement.GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
         }
-
-
-        if(slideTimer <= 0)
-        {
-            StopSlide();
-        }
     }
 
     void StopSlide()
     {
         movement.sliding = false;
-
+        slide = false;
         playerGfx.localScale = new Vector3(playerGfx.localScale.x, startYScale, playerGfx.localScale.z);
+        slideTimer = maxSlideTime;
+    }
+
+    private void CanSlideAgain()
+    {
+        slideTimer = maxSlideTime;
     }
 
 }

@@ -33,7 +33,7 @@ public class PlayerHeadBop : MonoBehaviour
 
     void HandleHeadBop()
     {
-        if(!movement.grounded)
+        if(!movement.grounded && movement.sliding)
         {
             return;
         }
