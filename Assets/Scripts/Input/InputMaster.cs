@@ -89,6 +89,15 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LadderClimb"",
+                    ""type"": ""Button"",
+                    ""id"": ""5684c31f-54cd-4f2e-a05a-06245abe968f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -289,6 +298,28 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""334db2a0-2b33-4802-8751-b572d6ab28e7"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard/Mouse"",
+                    ""action"": ""LadderClimb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c085853-4d15-4a03-8dd9-59fab04ed1b1"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LadderClimb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -332,6 +363,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Slide = m_Player.FindAction("Slide", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_LadderClimb = m_Player.FindAction("LadderClimb", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -398,6 +430,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Slide;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_LadderClimb;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -409,6 +442,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Slide => m_Wrapper.m_Player_Slide;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @LadderClimb => m_Wrapper.m_Player_LadderClimb;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -439,6 +473,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @LadderClimb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLadderClimb;
+                @LadderClimb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLadderClimb;
+                @LadderClimb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLadderClimb;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -464,6 +501,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @LadderClimb.started += instance.OnLadderClimb;
+                @LadderClimb.performed += instance.OnLadderClimb;
+                @LadderClimb.canceled += instance.OnLadderClimb;
             }
         }
     }
@@ -495,5 +535,6 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnLadderClimb(InputAction.CallbackContext context);
     }
 }
