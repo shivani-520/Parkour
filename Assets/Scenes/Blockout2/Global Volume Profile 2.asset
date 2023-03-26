@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.374
+    m_Value: 0.407
   scatter:
     m_OverrideState: 1
     m_Value: 0.7
@@ -70,7 +70,7 @@ MonoBehaviour:
     m_Value: 0
   multiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
   upperHemisphereLuxValue:
     m_OverrideState: 0
     m_Value: 0.120626956
@@ -203,7 +203,7 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.93500453, z: 0.77027035, w: 0}
+    m_Value: {x: 1, y: 0.89342344, z: 0.7050573, w: 0}
   midtones:
     m_OverrideState: 1
     m_Value: {x: 1, y: 0.98290396, z: 0.8378724, w: 0}
@@ -310,7 +310,7 @@ MonoBehaviour:
     m_Value: 200
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 15
+    m_Value: 25
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
