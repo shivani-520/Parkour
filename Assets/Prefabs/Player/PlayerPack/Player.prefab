@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69387eecaa578143b536a330a23ef20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ledgeClimbAnimator: {fileID: 0}
   playerCamera: {fileID: 0}
   orientation: {fileID: 3254764024123867497}
   cam: {fileID: 0}
@@ -371,6 +372,8 @@ MonoBehaviour:
     m_Bits: 256
   exitingLedge: 0
   exitLedgeTime: 0.2
+  leftArm: {fileID: 0}
+  rightArm: {fileID: 0}
 --- !u!114 &3254764024919455007
 MonoBehaviour:
   m_ObjectHideFlags: 0
