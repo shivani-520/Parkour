@@ -97,6 +97,8 @@ public class PlayerSliding : MonoBehaviour
         playerGfx.localScale = new Vector3(playerGfx.localScale.x, slideYScale, playerGfx.localScale.z);
         rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
+        cam.TiltChange(10f);
+
     }
 
     void SlidingMovement()
@@ -123,6 +125,8 @@ public class PlayerSliding : MonoBehaviour
         slide = false;
         playerGfx.localScale = new Vector3(playerGfx.localScale.x, startYScale, playerGfx.localScale.z);
         slideTimer = maxSlideTime;
+
+        cam.TiltChange(0f);
     }
 
     private void CanSlideAgain()
