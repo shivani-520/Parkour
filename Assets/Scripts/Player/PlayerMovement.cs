@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float slideSpeed;
     [SerializeField] float wallRunSpeed;
     [SerializeField] float airMinSpeed;
+    [SerializeField] float climbSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -50,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector]
     Vector2 move;
-    bool jump = false;
+    public bool jump = false;
     bool crouch = false;
     public bool sprint = false;
 
@@ -67,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         crouching,
         sliding, 
         wallrunning,
+        climbing,
         freeze,
         air 
     }
@@ -74,8 +76,8 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding;
     public bool wallRunning;
     public bool freeze;
-    public bool unlimited;
     public bool restricted;
+    public bool climbing;
 
     [SerializeField] private PlayerCamera cam;
 
@@ -179,8 +181,14 @@ public class PlayerMovement : MonoBehaviour
 
     void StateHandler()
     {
+        //climbing
+        if(climbing)
+        {
+            state = MovementState.climbing;
+            desiredMoveSpeed = climbSpeed;
+        }
         // freeze
-        if(freeze)
+        else if(freeze)
         {
             state = MovementState.freeze;
             rb.velocity = Vector3.zero;

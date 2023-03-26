@@ -87,11 +87,12 @@ public class PlayerCamera : MonoBehaviour
 
     public void TiltChange(float zTilt)
     {
-        transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
+        transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.2f);
     }
 
     public void OnDeviceChange(PlayerInput pi)
     {
         isGamepad = pi.currentControlScheme.Equals("Gamepad") ? true : false;
     }
+
 }

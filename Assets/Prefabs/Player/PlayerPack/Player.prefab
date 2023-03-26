@@ -265,15 +265,16 @@ MonoBehaviour:
   slideSpeed: 8
   wallRunSpeed: 5
   airMinSpeed: 2
+  climbSpeed: 0
   speedIncreaseMultiplier: 3
   slopeIncreaseMultiplier: 3
   groundDrag: 4
-  jumpForce: 5
+  jumpForce: 6
   jumpCooldown: 0.25
   airMultiplier: 0.4
   readyToJump: 0
   crouchSpeed: 3.5
-  crouchYScale: 0
+  crouchYScale: 0.75
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
@@ -282,14 +283,15 @@ MonoBehaviour:
   groundCheck: {fileID: 3254764023634155996}
   maxSlopeAngle: 30
   orientation: {fileID: 3254764024123867497}
+  jump: 0
   sprint: 0
   moveDirection: {x: 0, y: 0, z: 0}
   state: 0
   sliding: 0
   wallRunning: 0
   freeze: 0
-  unlimited: 0
   restricted: 0
+  climbing: 0
   cam: {fileID: 0}
 --- !u!114 &3254764024919455004
 MonoBehaviour:
@@ -308,7 +310,7 @@ MonoBehaviour:
   maxSlideTime: 0.75
   slideForce: 200
   slideTimer: 0
-  slideYScale: 0
+  slideYScale: 0.75
   slide: 0
   cam: {fileID: 0}
 --- !u!114 &3254764024919455005
@@ -330,8 +332,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   wallRunForce: 200
-  wallJumpUpForce: 8
-  wallJumpSideForce: 12
+  wallJumpUpForce: 7
+  wallJumpSideForce: 10
   wallClimbSpeed: 3
   maxWallRunTime: 0.7
   wallCheckDistance: 0.8
@@ -353,14 +355,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69387eecaa578143b536a330a23ef20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
   orientation: {fileID: 3254764024123867497}
   cam: {fileID: 0}
   moveToLedgeSpeed: 8
   maxLedgeGrabDistance: 2
   minTimeOnLedge: 0.5
   holding: 0
-  ledgeJumpForwardForce: 5
-  ledgeJumpUpwardsForce: 5
+  ledgeJumpForwardForce: 4
+  ledgeJumpUpwardsForce: 4
   ledgeDetectionLength: 1
   ledgeSphereCastRadius: 0.3
   whatIsLedge:

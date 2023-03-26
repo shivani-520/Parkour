@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerClimbing : MonoBehaviour
 {
+    [SerializeField] Animator ledgeClimbAnimator;
+
     public InputMaster inputMaster;
+    [SerializeField] PlayerCamera playerCamera;
 
     [Header("References")]
     private PlayerMovement movement;
@@ -43,6 +46,9 @@ public class PlayerClimbing : MonoBehaviour
 
     Vector2 move;
     bool jump = false;
+
+    [SerializeField] Transform leftArm;
+    [SerializeField] Transform rightArm;
 
     private void OnEnable()
     {
@@ -94,6 +100,8 @@ public class PlayerClimbing : MonoBehaviour
             if (timeOnLedge > minTimeOnLedge && anyInputKeyPressed) ExitLedgeHold();
 
             if (jump) LedgeJump();
+
+            ledgeClimbAnimator.SetTrigger("LedgeClimb");
         }
 
         // exiting
@@ -101,6 +109,8 @@ public class PlayerClimbing : MonoBehaviour
         {
             if (exitLedgeTimer > 0) exitLedgeTimer -= Time.deltaTime;
             else exitingLedge = false;
+
+            ledgeClimbAnimator.SetTrigger("LedgeExit");
         }
     }
 
@@ -143,6 +153,8 @@ public class PlayerClimbing : MonoBehaviour
 
         rb.useGravity = false;
         rb.velocity = Vector3.zero;
+
+        playerCamera.TiltChange(10f);
     }
 
     void FreezeRigidbodyOnLedge()
@@ -186,6 +198,8 @@ public class PlayerClimbing : MonoBehaviour
 
         StopAllCoroutines();
         Invoke(nameof(ResetLastLedge), 1f);
+
+        playerCamera.TiltChange(0f);
     }
 
     void ResetLastLedge()
