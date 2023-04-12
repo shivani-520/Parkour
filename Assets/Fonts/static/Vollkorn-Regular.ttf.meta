@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 79056698395a0ab4fa38a3ddcb4572d6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Vollkorn
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e7b0736d138c052439d9626a59a3d045, type: 3}
+  - {fileID: 12800000, guid: 273b7710d08d8604abef8e6de125cf28, type: 3}
+  - {fileID: 12800000, guid: 420ef3ed39dfc8449aefaeab6b6fcbdb, type: 3}
+  - {fileID: 12800000, guid: a1ddefd9d6eeec047be1c04b7e455658, type: 3}
+  - {fileID: 12800000, guid: 25d2fff45cd51a944a888c61666c578e, type: 3}
+  - {fileID: 12800000, guid: f0e8716e827ff344081c5f78bd656a99, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

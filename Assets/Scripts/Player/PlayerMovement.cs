@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public InputMaster inputMaster;
+    [SerializeField] private Animator anim;
 
     [Header("Movement")]
     float moveSpeed;
@@ -150,10 +151,15 @@ public class PlayerMovement : MonoBehaviour
         {
             inputMaster.Player.Sprint.performed += context => sprint = true;
             inputMaster.Player.Sprint.canceled += context => sprint = false;
+
+            anim.SetBool("isSprinting", true);
         }
         else
         {
             sprint = false;
+
+            anim.SetBool("isSprinting", false);
+
         }
 
 
@@ -199,6 +205,8 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallRunSpeed;
+
+            anim.SetBool("isSprinting", false);
         }
 
         // sliding
@@ -230,7 +238,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
 
-            cam.FOVChange(80f);
+            cam.FOVChange(70f);
             StaminaBar.instance.UseStamina(30f);
         }
         // walking
@@ -250,6 +258,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 desiredMoveSpeed = airMinSpeed;
             }
+
+            anim.SetBool("isSprinting", false);
         }
 
         bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
@@ -327,6 +337,7 @@ public class PlayerMovement : MonoBehaviour
         else if(!grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            anim.SetBool("isSprinting", false);
         }
 
         // turn gravity off while on slope
