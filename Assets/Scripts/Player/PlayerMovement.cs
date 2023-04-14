@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public InputMaster inputMaster;
     [SerializeField] private Animator anim;
+    [SerializeField] private AudioClip jumpGrunt;
+    [SerializeField] private AudioClip footsteps;
 
     [Header("Movement")]
     float moveSpeed;
@@ -134,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+
     }
 
     void MyInput()
@@ -152,16 +155,15 @@ public class PlayerMovement : MonoBehaviour
             inputMaster.Player.Sprint.performed += context => sprint = true;
             inputMaster.Player.Sprint.canceled += context => sprint = false;
 
-            anim.SetBool("isSprinting", true);
+            anim.SetBool("isMoving", true);
         }
         else
         {
             sprint = false;
 
-            anim.SetBool("isSprinting", false);
+            anim.SetBool("isMoving", false);
 
         }
-
 
         if(jump && readyToJump && grounded)
         {
@@ -170,6 +172,8 @@ public class PlayerMovement : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+
+            SoundManager.instance.PlaySound(jumpGrunt);
         }
 
         // start crouching
@@ -206,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallRunSpeed;
 
-            anim.SetBool("isSprinting", false);
+            anim.SetBool("isMoving", false);
         }
 
         // sliding
@@ -248,6 +252,7 @@ public class PlayerMovement : MonoBehaviour
             desiredMoveSpeed = walkSpeed;
 
             cam.FOVChange(60f);
+
         }
         // air
         else
@@ -259,7 +264,7 @@ public class PlayerMovement : MonoBehaviour
                 desiredMoveSpeed = airMinSpeed;
             }
 
-            anim.SetBool("isSprinting", false);
+            anim.SetBool("isMoving", false);
         }
 
         bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
@@ -337,7 +342,7 @@ public class PlayerMovement : MonoBehaviour
         else if(!grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-            anim.SetBool("isSprinting", false);
+            anim.SetBool("isMoving", false);
         }
 
         // turn gravity off while on slope
