@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 0}
   slider: {fileID: 0}
-  maxStamina: 75
+  maxStamina: 100
   currentStamina: 0
   movement: {fileID: 0}

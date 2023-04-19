@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerClimbing : MonoBehaviour
 {
-    [SerializeField] Animator ledgeClimbAnimator;
-
     public InputMaster inputMaster;
     [SerializeField] PlayerCamera playerCamera;
 
@@ -100,8 +98,6 @@ public class PlayerClimbing : MonoBehaviour
             if (timeOnLedge > minTimeOnLedge && anyInputKeyPressed) ExitLedgeHold();
 
             if (jump) LedgeJump();
-
-            ledgeClimbAnimator.SetTrigger("LedgeClimb");
         }
 
         // exiting
@@ -109,8 +105,6 @@ public class PlayerClimbing : MonoBehaviour
         {
             if (exitLedgeTimer > 0) exitLedgeTimer -= Time.deltaTime;
             else exitingLedge = false;
-
-            ledgeClimbAnimator.SetTrigger("LedgeExit");
         }
     }
 
