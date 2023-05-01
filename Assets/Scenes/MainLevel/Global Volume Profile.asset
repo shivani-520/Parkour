@@ -18,7 +18,7 @@ MonoBehaviour:
     m_Value: 0
   contrast:
     m_OverrideState: 1
-    m_Value: 58
+    m_Value: 90
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -112,13 +112,13 @@ MonoBehaviour:
       m_Value: {fileID: 0}
     lighting:
       m_OverrideState: 1
-      m_Value: 0
+      m_Value: 1
     steps:
       m_OverrideState: 1
       m_Value: 4
     thickness:
       m_OverrideState: 1
-      m_Value: 0.5
+      m_Value: 0.656
     castShadows:
       m_OverrideState: 1
       m_Value: 0
@@ -295,10 +295,10 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   windOrientation:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   windSpeed:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 100
   fogType:
     m_OverrideState: 0
@@ -323,33 +323,7 @@ MonoBehaviour:
   - {fileID: -7106353776199211573}
   - {fileID: 4027625183339231860}
   - {fileID: 3040670257847896462}
-  - {fileID: 1596268960342517410}
   - {fileID: -8145119780653968179}
---- !u!114 &1596268960342517410
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6b00fcf518bb94a90b408492e07b44, type: 3}
-  m_Name: FilmGrain
-  m_EditorClassIdentifier: 
-  active: 1
-  type:
-    m_OverrideState: 1
-    m_Value: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.41
-  response:
-    m_OverrideState: 1
-    m_Value: 0.8
-  texture:
-    m_OverrideState: 1
-    m_Value: {fileID: 0}
 --- !u!114 &2279647254613445286
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -365,7 +339,7 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.671089, y: 1, z: 0.9221656, w: 0.03558726}
+    m_Value: {x: 0.8448172, y: 1, z: 0.92749196, w: 0.10629613}
   midtones:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -556,7 +530,7 @@ MonoBehaviour:
     m_Value: 1
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   globalLightProbeDimmer:
     m_OverrideState: 1
     m_Value: 1

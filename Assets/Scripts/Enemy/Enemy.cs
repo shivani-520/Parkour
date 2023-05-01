@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,85 +15,98 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Animator sanityEffect;
 
-    [SerializeField] private float speed;
-    [SerializeField] private float delayTime = 3.0f; // the amount of time the enemy will stay behind after the player exits the collider
-    [SerializeField] private AudioClip clip;
+    public bool onCollison = false;
 
-    private bool nearPlayer;
-    private bool isDelayed;
-    private float delayTimer;
-    [SerializeField] private bool onCollison = false;
+    [SerializeField] private Camera cam;
+
+    [SerializeField] private AudioClip[] clip;
+    [SerializeField] private AudioClip startClip;
+
+    bool hasPlayedSound = false;
+
+    [SerializeField] private GameObject chaseMusic;
+    [SerializeField] private GameObject sanityBar;
+    [SerializeField] private GameObject jumpscare;
+    [SerializeField] private GameObject sounds;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        currentSanity = 0;
+
+        currentSanity = 90;
         sanityMeter.maxValue = maxSanity;
         sanityMeter.value = currentSanity;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (nearPlayer == false && isDelayed == false)
-        {
-            transform.Translate(Vector3.forward * speed);
-        }
-        else if (isDelayed == true)
-        {
-            delayTimer += Time.deltaTime;
-            if (delayTimer >= delayTime)
-            {
-                delayTimer = 0f;
-                isDelayed = false;
-            }
-        }
 
         if(onCollison)
         {
-            currentSanity += sanityAmount * Time.deltaTime;
+            sanityBar.SetActive(true);
+            chaseMusic.SetActive(true);
+            currentSanity -= sanityAmount * Time.deltaTime;
             sanityMeter.value = currentSanity;
+
+            if(!hasPlayedSound)
+            {
+                int randomClipIndex = Random.Range(0, clip.Length);
+                SoundManager.instance.PlaySound(clip[randomClipIndex]);
+
+                hasPlayedSound = true;
+                StartCoroutine(ResetHasPlayedSound());
+
+                sanityEffect.SetTrigger("Insane");
+            }
+
         }
         else
         {
+            sanityBar.SetActive(false);
+            chaseMusic.SetActive(false);
             if(currentSanity >= 0)
             {
-                currentSanity -= 3 * Time.deltaTime;
+                currentSanity += 5 * Time.deltaTime;
                 sanityMeter.value = currentSanity;
+
+                sanityEffect.SetTrigger("Sane");
             }
         }
 
-        if(currentSanity >= maxSanity)
+        if(currentSanity < 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            StartCoroutine(Delay());
+            sounds.SetActive(false);
+            chaseMusic.SetActive(false);
+        }
+
+        if(currentSanity >= 100)
+        {
+            currentSanity = 100;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+                                      
+    public void Shake()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            onCollison = true;
-
-            sanityEffect.SetTrigger("sanity");
-
-            SoundManager.instance.PlaySound(clip);
-            nearPlayer = true;
-            isDelayed = false;
-        }
+        cam.transform.DOShakePosition(1, 0.1f);
     }
 
-    private void OnTriggerExit(Collider other)
+    IEnumerator ResetHasPlayedSound()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            onCollison = false;
+        yield return new WaitForSeconds(5f);
+        hasPlayedSound = false;
+    }
 
-            sanityEffect.SetTrigger("sane");
-
-            nearPlayer = false;
-            isDelayed = true;
-        }
+    IEnumerator Delay()
+    {
+        jumpscare.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("RestartScene");
     }
 
 }

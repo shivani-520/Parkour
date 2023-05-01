@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7605224857726119974}
   - component: {fileID: 2057338388593257721}
   - component: {fileID: 1447461997992625036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2596281979873533405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crates
   m_TagString: Untagged
   m_Icon: {fileID: 0}

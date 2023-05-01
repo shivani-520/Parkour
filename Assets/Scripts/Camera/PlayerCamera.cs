@@ -28,6 +28,8 @@ public class PlayerCamera : MonoBehaviour
 
     bool isGamepad;
 
+    bool canMove = false;
+
     private void OnEnable()
     {
         inputMaster.Enable();
@@ -47,38 +49,45 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        StartCoroutine(DelayAtStart());
     }
 
     private void Update()
     {
-        if(isGamepad)
+
+        if(canMove)
         {
-            sensX = gamepadSensX;
-            sensY = gamepadSensY;
+            if (isGamepad)
+            {
+                sensX = gamepadSensX;
+                sensY = gamepadSensY;
+            }
+            else
+            {
+                sensX = mouseSensX;
+                sensY = mouseSensY;
+            }
+
+            // Mouse input
+
+            inputX = inputMaster.Player.LookX.ReadValue<float>();
+            inputY = inputMaster.Player.LookY.ReadValue<float>();
+
+            float mouseX = inputX * Time.deltaTime * sensX;
+            float mouseY = inputY * Time.deltaTime * sensY;
+
+
+            yRotation += mouseX;
+
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            // Rotate camera and orientation
+            cameraHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
         }
-        else
-        {
-            sensX = mouseSensX;
-            sensY = mouseSensY;
-        }
 
-        // Mouse input
-
-        inputX = inputMaster.Player.LookX.ReadValue<float>();
-        inputY = inputMaster.Player.LookY.ReadValue<float>();
-
-        float mouseX = inputX * Time.deltaTime * sensX;
-        float mouseY = inputY * Time.deltaTime * sensY;
-
-
-        yRotation += mouseX;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        // Rotate camera and orientation
-        cameraHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
     public void FOVChange(float endValue)
     {
@@ -95,4 +104,9 @@ public class PlayerCamera : MonoBehaviour
         isGamepad = pi.currentControlScheme.Equals("Gamepad") ? true : false;
     }
 
+    IEnumerator DelayAtStart()
+    {
+        yield return new WaitForSeconds(1f);
+        canMove = true;
+    }
 }

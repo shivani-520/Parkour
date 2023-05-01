@@ -51,6 +51,7 @@ public class StaminaBar : MonoBehaviour
             }
 
             regen = StartCoroutine(RegenStamina());
+
             movement.sprint = true;
         }
         else

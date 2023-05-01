@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8262567563183311177
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598e2d32e2c7b0c418e030c3236d663a, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  quality:
+    m_OverrideState: 1
+    m_Value: 3
+  spectralLut:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1
+  m_MaxSamples:
+    m_OverrideState: 1
+    m_Value: 24
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,6 +40,7 @@ MonoBehaviour:
   components:
   - {fileID: 4133454687073789795}
   - {fileID: 7811319836084682287}
+  - {fileID: -8262567563183311177}
 --- !u!114 &4133454687073789795
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -36,13 +62,13 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.633
   scatter:
     m_OverrideState: 1
     m_Value: 1
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.7169812, g: 0.24012107, b: 0.24012107, a: 1}
+    m_Value: {r: 0.8018868, g: 0.26099145, b: 0.26099145, a: 1}
   dirtTexture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
@@ -76,7 +102,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: -0.5
+    m_Value: -0.247
   xMultiplier:
     m_OverrideState: 1
     m_Value: 0.454

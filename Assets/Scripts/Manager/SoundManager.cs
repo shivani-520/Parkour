@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource musicSource, effectSource;
 
+    public AudioSource loopEffectSource;
+
     private void Awake()
     {
         if(instance == null)
@@ -24,5 +26,10 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         effectSource.PlayOneShot(clip);
+    }
+
+    public void PlayLoopSound(AudioClip clip)
+    {
+        loopEffectSource.PlayOneShot(clip);
     }
 }

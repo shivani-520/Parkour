@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public InputMaster inputMaster;
     [SerializeField] private Animator anim;
     [SerializeField] private AudioClip jumpGrunt;
-    [SerializeField] private AudioClip footsteps;
 
     [Header("Movement")]
     float moveSpeed;
@@ -242,7 +241,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
 
-            cam.FOVChange(70f);
+            cam.FOVChange(65f);
             StaminaBar.instance.UseStamina(30f);
         }
         // walking
