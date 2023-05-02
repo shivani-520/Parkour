@@ -16,7 +16,7 @@ MonoBehaviour:
     supportShadowMask: 1
     supportSSR: 0
     supportSSRTransparent: 0
-    supportSSAO: 1
+    supportSSAO: 0
     supportSSGI: 0
     supportSubsurfaceScattering: 1
     sssSampleBudget:
@@ -24,7 +24,7 @@ MonoBehaviour:
       m_SchemaId:
         m_Id: With3Levels
     supportVolumetrics: 1
-    supportVolumetricClouds: 1
+    supportVolumetricClouds: 0
     supportLightLayers: 0
     supportDistortion: 1
     supportTransparentBackface: 1
@@ -35,7 +35,7 @@ MonoBehaviour:
     customBufferFormat: 8
     supportedLitShaderMode: 2
     planarReflectionResolution:
-      m_Values: 000100000004000000080000
+      m_Values: 000100000004000000040000
       m_SchemaId:
         m_Id: With3Levels
     supportDecals: 1
@@ -269,7 +269,7 @@ MonoBehaviour:
   allowShaderVariantStripping: 1
   enableSRPBatcher: 1
   availableMaterialQualityLevels: -1
-  m_DefaultMaterialQualityLevel: 4
+  m_DefaultMaterialQualityLevel: 2
   diffusionProfileSettings: {fileID: 0}
   virtualTexturingSettings:
     streamingCpuCacheSizeInMegaBytes: 256

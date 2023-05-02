@@ -22,6 +22,11 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    private void PauseGame()
+    {
+
+    }
+
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");

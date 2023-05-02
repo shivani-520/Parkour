@@ -66,7 +66,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: e512af4179ea2fa488cc2878ddcb96da, type: 2}
   - {fileID: 2100000, guid: 3a95e7d78f3ee874691ef731ff4f006d, type: 2}
   - {fileID: 2100000, guid: 0a1543dcc0ffd434085ae3ce5774a815, type: 2}
-  - {fileID: 2100000, guid: 20cd72755cebc5149b0a5b9df530bec1, type: 2}
+  - {fileID: 2100000, guid: 1b4c86732322c0c4398dc5745c14669f, type: 2}
   - {fileID: 2100000, guid: f614feb4d5952e34a8f1c2fdabbc9b3d, type: 2}
   - {fileID: 2100000, guid: 4a5cacee7fdf3ea4abc0bb39d4820c71, type: 2}
   - {fileID: 2100000, guid: d6169cf8d89c0584b93ce87b4bb09216, type: 2}
@@ -134,9 +134,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6889501666014235454}
-  m_LocalRotation: {x: -0, y: -0.711367, z: -0, w: 0.7028208}
+  m_LocalRotation: {x: 0, y: -0.71136403, z: 0, w: 0.7028238}
   m_LocalPosition: {x: 4.71, y: 1.9468956, z: 534.81}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1.5752}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8581331918292537168}

@@ -3,7 +3,82 @@ guid: d54100b8c23cca249bf2b5dae8bc291b
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#1
+    second: {fileID: 2100000, guid: 7ef65a96c78d70844a2c9c82adf56276, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#10
+    second: {fileID: 2100000, guid: 52b9f618f7aba8949a02e62890ba79a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#11
+    second: {fileID: 2100000, guid: b0777bce2527fd144a828cf6168273ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#12
+    second: {fileID: 2100000, guid: 63704928f83950c4581a7c5cbd6406a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#2
+    second: {fileID: 2100000, guid: 5817ff41655307c459c30f0d41026462, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#3
+    second: {fileID: 2100000, guid: 8c5b19f98bf66b94cafe4872f32a3a14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#4
+    second: {fileID: 2100000, guid: 25c9c3817a4aa394a884fd55dfcb3670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#5
+    second: {fileID: 2100000, guid: 8a3948554ab0f8c469a95197c5500dd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#6
+    second: {fileID: 2100000, guid: 8200f934e8a02c64db6eff46a1951d52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#7
+    second: {fileID: 2100000, guid: 02578ea11d43d12488d156e20059ca33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#8
+    second: {fileID: 2100000, guid: c6d20748272274c4bb5d341cdec8ae60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes#9
+    second: {fileID: 2100000, guid: 65eeb12c7f0d09c4381463517c586e2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Peg
+    second: {fileID: 2100000, guid: a042b771ca9744c4386b2626d73c9d43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Peg Metal
+    second: {fileID: 2100000, guid: 7f63e1143c1e79b488c56b893ab2bbcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: String
+    second: {fileID: 2100000, guid: 79bad17905202164d8ebd64637bd71a5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +163,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.049999997
+    globalScale: 5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyFollow : MonoBehaviour
 {
     [SerializeField] private float lookRadius;
+    [SerializeField] private float chaseRadius;
     [SerializeField] private float sanityRadius;
 
     [SerializeField] private Transform player;
@@ -17,6 +18,7 @@ public class EnemyFollow : MonoBehaviour
     [SerializeField] private Enemy sanityLogic;
 
     [SerializeField] private GameObject jumpscare;
+    [SerializeField] private GameObject chaseMusic;
 
     private void Start()
     {
@@ -31,6 +33,8 @@ public class EnemyFollow : MonoBehaviour
 
         if (distance <= lookRadius)
         {
+            agent.speed = 3;
+
             anim.SetFloat("Speed", agent.velocity.magnitude);
             agent.SetDestination(player.position);
 
@@ -39,14 +43,25 @@ public class EnemyFollow : MonoBehaviour
                 FaceTarget();
             }
 
-            if(distance <= sanityRadius)
+            if (distance <= sanityRadius)
             {
+                agent.speed = 6;
                 sanityLogic.onCollison = true;
             }
             else
             {
                 sanityLogic.onCollison = false;
             }
+
+            if (distance <= chaseRadius)
+            {
+                agent.speed = 4;
+                chaseMusic.SetActive(true);
+            }
+        }
+        else
+        {
+            chaseMusic.SetActive(false);
         }
 
 
@@ -66,6 +81,9 @@ public class EnemyFollow : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, sanityRadius);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseRadius);
     }
 
 

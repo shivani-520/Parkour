@@ -48,7 +48,6 @@ public class Enemy : MonoBehaviour
         if(onCollison)
         {
             sanityBar.SetActive(true);
-            chaseMusic.SetActive(true);
             currentSanity -= sanityAmount * Time.deltaTime;
             sanityMeter.value = currentSanity;
 
@@ -67,7 +66,6 @@ public class Enemy : MonoBehaviour
         else
         {
             sanityBar.SetActive(false);
-            chaseMusic.SetActive(false);
             if(currentSanity >= 0)
             {
                 currentSanity += 5 * Time.deltaTime;

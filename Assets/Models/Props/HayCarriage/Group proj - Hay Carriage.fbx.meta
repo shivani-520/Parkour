@@ -3,7 +3,37 @@ guid: fbfa2eaf1bcace64aac3f7aa67262957
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart Metal
+    second: {fileID: 2100000, guid: 0e9cd7d485550a24bade703cf924d920, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart Wood #0
+    second: {fileID: 2100000, guid: c82caf63e6ef4b941acaefa59b1c0749, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart Wood #1
+    second: {fileID: 2100000, guid: edbbc607df0c6054cb77a8096a203428, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart Wood #2
+    second: {fileID: 2100000, guid: 07c667572d39ef245b83361b564732cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart Wood #3
+    second: {fileID: 2100000, guid: b790372d1d6513b4bac1572dae450dad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hay
+    second: {fileID: 2100000, guid: a02e0595295efa445aa2676fba27e686, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +118,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.02
+    globalScale: 2
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

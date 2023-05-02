@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 6806043562370842875}
   m_Layer: 0
   m_Name: Monster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,7 +164,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -188,11 +188,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2ebd29022dc9c4dbad4fd27a7aa029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 12
-  sanityRadius: 7
+  lookRadius: 15
+  chaseRadius: 10
+  sanityRadius: 8
   player: {fileID: 0}
   sanityLogic: {fileID: 0}
   jumpscare: {fileID: 0}
+  chaseMusic: {fileID: 0}
 --- !u!54 &6806043562370842876
 Rigidbody:
   m_ObjectHideFlags: 0
