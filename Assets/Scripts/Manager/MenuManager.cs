@@ -42,6 +42,6 @@ public class MenuManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        SceneManager.LoadScene("MainLevel");
+        SceneManager.LoadScene("Level1");
     }
 }
