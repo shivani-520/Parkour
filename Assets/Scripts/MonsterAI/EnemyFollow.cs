@@ -58,10 +58,14 @@ public class EnemyFollow : MonoBehaviour
                 agent.speed = 4;
                 chaseMusic.SetActive(true);
             }
+            else
+            {
+                chaseMusic.SetActive(false);
+            }
         }
         else
         {
-            chaseMusic.SetActive(false);
+            sanityLogic.onCollison = false;
         }
 
 

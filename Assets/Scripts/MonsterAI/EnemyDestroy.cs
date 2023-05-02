@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyDestroy : MonoBehaviour
 {
+    [SerializeField] private GameObject enemy;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            enemy.SetActive(false);
         }
     }
 }

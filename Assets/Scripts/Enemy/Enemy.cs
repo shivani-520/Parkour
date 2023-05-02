@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
             }
 
         }
-        else
+        else if(!onCollison)
         {
             sanityBar.SetActive(false);
             if(currentSanity >= 0)
