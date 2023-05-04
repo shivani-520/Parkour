@@ -541,7 +541,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: 85cb95a2c9f472e46b2c9e7a76b44432, type: 2}
   - {fileID: 2100000, guid: 6d222543fc4fafb4eb34f27f7ab4875b, type: 2}
   - {fileID: 2100000, guid: 61ed93e871afd2749b4fd749a0f1943c, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ad3332facb2f81f4e8eb7836a7696c63, type: 2}
   - {fileID: 2100000, guid: 301c764fa5e19e24cb71783ba1e7eb86, type: 2}
   - {fileID: 2100000, guid: 22733ae394996af43a49f822e9b2f58c, type: 2}
   m_StaticBatchInfo:
@@ -779,6 +779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5989271494841440049}
+  - component: {fileID: 3998636811933827342}
   m_Layer: 6
   m_Name: BellTower
   m_TagString: Untagged
@@ -805,6 +806,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3998636811933827342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365268653836193163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6971663202051952974
 GameObject:
   m_ObjectHideFlags: 0

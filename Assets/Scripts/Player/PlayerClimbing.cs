@@ -98,6 +98,8 @@ public class PlayerClimbing : MonoBehaviour
             if (timeOnLedge > minTimeOnLedge && anyInputKeyPressed) ExitLedgeHold();
 
             if (jump) LedgeJump();
+
+            StartCoroutine("PushPlayerUp");
         }
 
         // exiting
@@ -199,5 +201,13 @@ public class PlayerClimbing : MonoBehaviour
     void ResetLastLedge()
     {
         lastLedge = null;
+    }
+
+    IEnumerator PushPlayerUp()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Vector3 forceToAdd = cam.forward * ledgeJumpForwardForce + orientation.up * ledgeJumpUpwardsForce;
+        rb.AddForce(forceToAdd, ForceMode.Impulse);
+
     }
 }

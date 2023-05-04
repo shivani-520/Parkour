@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyFollow : MonoBehaviour
 {
-    [SerializeField] private float lookRadius;
-    [SerializeField] private float chaseRadius;
+    [SerializeField] private float maxTime;
+    [SerializeField] private float maxDistance;
+    private float timer;
+
     [SerializeField] private float sanityRadius;
 
     [SerializeField] private Transform player;
@@ -15,10 +17,9 @@ public class EnemyFollow : MonoBehaviour
 
     private Animator anim;
 
-    [SerializeField] private Enemy sanityLogic;
+    [SerializeField] private SanityManager sanityLogic;
 
     [SerializeField] private GameObject jumpscare;
-    [SerializeField] private GameObject chaseMusic;
 
     private void Start()
     {
@@ -29,65 +30,40 @@ public class EnemyFollow : MonoBehaviour
 
     private void Update()
     {
+
+        timer -= Time.deltaTime;
+        if(timer < 0f)
+        {
+            float sqDistance = (player.transform.position - agent.destination).sqrMagnitude;
+
+            if(sqDistance > maxDistance*maxDistance)
+            {
+                agent.SetDestination(player.position);
+            }
+
+            timer = maxTime;
+        }
+
         float distance = Vector3.Distance(player.position, transform.position);
 
-        if (distance <= lookRadius)
+        if (distance <= sanityRadius)
         {
-            agent.speed = 3;
-
-            anim.SetFloat("Speed", agent.velocity.magnitude);
-            agent.SetDestination(player.position);
-
-            if (distance <= agent.stoppingDistance)
-            {
-                FaceTarget();
-            }
-
-            if (distance <= sanityRadius)
-            {
-                agent.speed = 6;
-                sanityLogic.onCollison = true;
-            }
-            else
-            {
-                sanityLogic.onCollison = false;
-            }
-
-            if (distance <= chaseRadius)
-            {
-                agent.speed = 4;
-                chaseMusic.SetActive(true);
-            }
-            else
-            {
-                chaseMusic.SetActive(false);
-            }
+            sanityLogic.onCollison = true;
         }
         else
         {
             sanityLogic.onCollison = false;
+
         }
+        anim.SetFloat("Speed", agent.velocity.magnitude);
 
-
-    }
-
-    void FaceTarget()
-    {
-        Vector3 direction = (player.position - transform.position).normalized;
-        Quaternion LookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, LookRotation, Time.deltaTime * 5f);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
-
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, sanityRadius);
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, chaseRadius);
     }
 
 

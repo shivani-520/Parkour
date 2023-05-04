@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7037718446570313852}
   - component: {fileID: 6198400278690437081}
   - component: {fileID: 8206072540223136531}
+  - component: {fileID: -4954417552983559210}
   m_Layer: 0
   m_Name: Group proj - Some Basic Hands I Made For Vaulting Highlights
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-4954417552983559210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7701488580857283270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

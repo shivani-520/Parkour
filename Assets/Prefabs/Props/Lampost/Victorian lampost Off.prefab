@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4207410110162998042}
   - component: {fileID: 994278062825151679}
   - component: {fileID: 3037842775492585589}
+  - component: {fileID: 4324438203596876468}
   m_Layer: 0
   m_Name: Victorian lampost Off
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3542197210799622560}
-  m_LocalRotation: {x: 0.116350934, y: -0.6974677, z: 0.6974696, w: 0.11635066}
+  m_LocalRotation: {x: 0.11635339, y: -0.69746816, z: 0.69746816, w: 0.11635339}
   m_LocalPosition: {x: -35.43, y: 1.82, z: 320.38995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4324438203596876468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542197210799622560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4757152211540265492}
   - component: {fileID: 7340933306223083230}
   - component: {fileID: 8323096285046081209}
+  - component: {fileID: 8856536463512011007}
   m_Layer: 7
   m_Name: Appartment_Wallrun
   m_TagString: Untagged
@@ -103,3 +104,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4874555556530173207, guid: ec97a07acd1b8814fb7dc8a78e3fb5d7, type: 3}
+--- !u!114 &8856536463512011007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142526606935138059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3726805326490845462}
   - component: {fileID: 1467244370168493532}
   - component: {fileID: 3014075501975578108}
+  - component: {fileID: -2382875579091307809}
   m_Layer: 0
   m_Name: Appartment
   m_TagString: Untagged
@@ -66,7 +67,8 @@ MeshRenderer:
   - {fileID: 2100000, guid: e1581febdbd2252439ff5a72120fb55b, type: 2}
   - {fileID: 2100000, guid: 841d226feb829c94891f6ae9d62b1d39, type: 2}
   - {fileID: 2100000, guid: be556363db66f914fb60de44264d3b07, type: 2}
-  - {fileID: 2100000, guid: f021f7adf1bd8f743b82a271f7feec4e, type: 2}
+  - {fileID: 2100000, guid: 61ed93e871afd2749b4fd749a0f1943c, type: 2}
+  - {fileID: 2100000, guid: b32981829809bbd4ca132e45bf370432, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,3 +104,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4874555556530173207, guid: ec97a07acd1b8814fb7dc8a78e3fb5d7, type: 3}
+--- !u!114 &-2382875579091307809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106845968075723785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

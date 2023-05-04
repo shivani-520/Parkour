@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 6508902576299296246}
   - component: {fileID: 6806043562370842876}
   - component: {fileID: 6806043562370842875}
+  - component: {fileID: 1538634648972365825}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Enemy
@@ -126,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 576381657498273081}
   m_LocalRotation: {x: 0.027309747, y: -0.3706079, z: -0.012028915, w: -0.92830986}
   m_LocalPosition: {x: -5.86, y: 12.08, z: 5.64}
-  m_LocalScale: {x: 0.84974, y: 0.84974, z: 0.84974}
+  m_LocalScale: {x: 0.8497401, y: 0.84974, z: 0.8497401}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8071785262627671837}
@@ -164,7 +165,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 4
+  m_Speed: 3
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -188,13 +189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2ebd29022dc9c4dbad4fd27a7aa029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 15
-  chaseRadius: 10
+  maxTime: 0.5
+  maxDistance: 2
   sanityRadius: 8
   player: {fileID: 0}
   sanityLogic: {fileID: 0}
   jumpscare: {fileID: 0}
-  chaseMusic: {fileID: 0}
 --- !u!54 &6806043562370842876
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -225,6 +225,18 @@ CapsuleCollider:
   m_Height: 5.8881073
   m_Direction: 1
   m_Center: {x: -0.0000000035215115, y: 2.4440486, z: 0.00000005575641}
+--- !u!114 &1538634648972365825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576381657498273081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &588192372294346555
 GameObject:
   m_ObjectHideFlags: 0

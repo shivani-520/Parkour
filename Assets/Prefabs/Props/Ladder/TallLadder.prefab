@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 7579773466057639948}
   - component: {fileID: 1018879200497919973}
   - component: {fileID: 5868377615099031544}
+  - component: {fileID: 3095044706927433221}
   m_Layer: 0
   m_Name: TallLadder
   m_TagString: Untagged
@@ -167,3 +168,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3095044706927433221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992351328951912912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

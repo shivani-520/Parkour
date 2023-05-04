@@ -32,4 +32,9 @@ public class SoundManager : MonoBehaviour
     {
         loopEffectSource.PlayOneShot(clip);
     }
+
+    public void StopPlayingLoopSound()
+    {
+        loopEffectSource.Stop();
+    }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5699982177942541354}
   - component: {fileID: 8698064972252289935}
   - component: {fileID: 6868353696008073029}
+  - component: {fileID: -5999867306217058756}
   m_Layer: 0
   m_Name: Clock_Tower
   m_TagString: Untagged
@@ -25,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4922917335295250064}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 10.12, y: 0.47, z: 62.07}
   m_LocalScale: {x: 0.200765, y: 0.20076501, z: 0.20076501}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &8698064972252289935
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -61,17 +62,17 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -604316626302413864, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: 1157471560394431334, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: 321398585397023164, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: 532364259400670332, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: -2881445276239496059, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: 4994165885606464720, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: -905647767727037255, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: -6436591170870349062, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: 4633966528211553250, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: 6842137714722353314, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
-  - {fileID: -4510822905740073783, guid: 3b90449b2218b694aaf3160c90c69bb8, type: 3}
+  - {fileID: 2100000, guid: 9824bfc03f599e04596fb838bc6ddf3a, type: 2}
+  - {fileID: 2100000, guid: b439b5583f169204589a1991de31e44c, type: 2}
+  - {fileID: 2100000, guid: 9385021194ae3c0459a06177cddb0c4c, type: 2}
+  - {fileID: 2100000, guid: 9385021194ae3c0459a06177cddb0c4c, type: 2}
+  - {fileID: 2100000, guid: 74b847ae409617b49a976e2fad4c5268, type: 2}
+  - {fileID: 2100000, guid: b439b5583f169204589a1991de31e44c, type: 2}
+  - {fileID: 2100000, guid: c29da6bff91ff8946a50dce3a0ac7abd, type: 2}
+  - {fileID: 2100000, guid: b439b5583f169204589a1991de31e44c, type: 2}
+  - {fileID: 2100000, guid: b439b5583f169204589a1991de31e44c, type: 2}
+  - {fileID: 2100000, guid: 74b847ae409617b49a976e2fad4c5268, type: 2}
+  - {fileID: 2100000, guid: 163e2b11c23791a4aaf425005b688f7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,3 +94,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5999867306217058756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922917335295250064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

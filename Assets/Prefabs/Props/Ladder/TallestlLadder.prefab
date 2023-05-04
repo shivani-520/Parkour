@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1744858054}
   - component: {fileID: 1744858053}
   m_Layer: 6
-  m_Name: erw
+  m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -790491357970033179, guid: b58fe8f62c8c4904188b7284c560aab8, type: 3}
+  - {fileID: 2100000, guid: e7295a6f1c65ad54f9dc9ff183abc51a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 2131159739151312258}
   - component: {fileID: 3151920341741288859}
   - component: {fileID: 1464102614}
+  - component: {fileID: 3743516318521672666}
   m_Layer: 6
   m_Name: TallestlLadder
   m_TagString: Untagged
@@ -259,7 +260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -790491357970033179, guid: b58fe8f62c8c4904188b7284c560aab8, type: 3}
+  - {fileID: 2100000, guid: e7295a6f1c65ad54f9dc9ff183abc51a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -295,3 +296,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8385836491182413749, guid: b58fe8f62c8c4904188b7284c560aab8, type: 3}
+--- !u!114 &3743516318521672666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185805337892397597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

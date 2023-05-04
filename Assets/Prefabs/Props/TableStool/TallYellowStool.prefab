@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2982372782053314824}
   - component: {fileID: 2582318696070975210}
   - component: {fileID: 130923861137555522}
+  - component: {fileID: 3362047460578210984}
   m_Layer: 0
   m_Name: TallYellowStool
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932917892880430397}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 1925.266, y: 9.029375, z: 760.416}
   m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
   m_ConstrainProportionsScale: 0
@@ -34,7 +35,7 @@ Transform:
   - {fileID: 2455423186440242196}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &2982372782053314824
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -100,6 +101,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102455882285522874, guid: 744a7d53ebcacd3498584e8db56ff34d, type: 3}
+--- !u!114 &3362047460578210984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932917892880430397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4858802095374670436
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,14 +139,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4858802095374670436}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.7117117, y: -0, z: -0, w: 0.7024717}
+  m_LocalPosition: {x: 0.0009802246, y: 0.00077148236, z: 0.006846317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9127465547898595718}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.74899, y: 0, z: 0}
 --- !u!33 &4611574859934025248
 MeshFilter:
   m_ObjectHideFlags: 0

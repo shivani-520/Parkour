@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3515352779139954828}
   - component: {fileID: 533343607745066793}
   - component: {fileID: 2342476978144035811}
+  - component: {fileID: 4135350104190276393}
   m_Layer: 0
   m_Name: Group proj - A decal to highlight running across the walls
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4135350104190276393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4288229586025701942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

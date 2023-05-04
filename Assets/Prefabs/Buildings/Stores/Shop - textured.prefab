@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7895824548594827880}
   - component: {fileID: 5365878282256201378}
   - component: {fileID: 4249953427551311782}
+  - component: {fileID: -4222348899425105543}
   m_Layer: 6
   m_Name: Shop - textured
   m_TagString: Untagged
@@ -128,3 +129,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 9113743562689292391, guid: 3244ea39eec51da49b2f6ca7d0cf0d58, type: 3}
+--- !u!114 &-4222348899425105543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5870320816070236023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

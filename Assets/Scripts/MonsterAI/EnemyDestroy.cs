@@ -10,7 +10,7 @@ public class EnemyDestroy : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            enemy.SetActive(false);
+            //enemy.SetActive(false);
         }
     }
 }
