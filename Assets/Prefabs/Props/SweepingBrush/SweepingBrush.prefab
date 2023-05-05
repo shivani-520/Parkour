@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5274147404713517643}
   - component: {fileID: 7986428426824160897}
   - component: {fileID: -8467311915905937747}
+  - component: {fileID: 2041487847424145245}
   m_Layer: 0
   m_Name: SweepingBrush
   m_TagString: Untagged
@@ -98,3 +99,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &2041487847424145245
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490835777201125204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2119053253756902303, guid: c8596b37cb259074db8125884f6d921d, type: 3}

@@ -10,6 +10,7 @@ public class EnemyFollow : MonoBehaviour
     private float timer;
 
     [SerializeField] private float sanityRadius;
+    [SerializeField] private float jumpscareRadius;
 
     [SerializeField] private Transform player;
 
@@ -55,6 +56,11 @@ public class EnemyFollow : MonoBehaviour
             sanityLogic.onCollison = false;
 
         }
+
+        if(distance <= jumpscareRadius)
+        {
+            sanityLogic.StartCoroutine("Jumpscare");
+        }
         anim.SetFloat("Speed", agent.velocity.magnitude);
 
     }
@@ -63,6 +69,9 @@ public class EnemyFollow : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, sanityRadius);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, jumpscareRadius);
 
     }
 

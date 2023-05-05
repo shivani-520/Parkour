@@ -663,6 +663,7 @@ GameObject:
   - component: {fileID: 8023694949294223856}
   - component: {fileID: 5241366717343974714}
   - component: {fileID: 7883136412053417548}
+  - component: {fileID: 4607217170133182566}
   m_Layer: 0
   m_Name: Victorian lampostBright
   m_TagString: Untagged
@@ -751,3 +752,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &4607217170133182566
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034242075291575535}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4166021890194891185, guid: e0e9c38a9ca9abe4d8e5e7f237794ac7, type: 3}

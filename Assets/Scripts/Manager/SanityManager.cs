@@ -26,7 +26,7 @@ public class SanityManager : MonoBehaviour
 
     [SerializeField] private GameObject chaseMusic;
     [SerializeField] private GameObject sanityBar;
-    [SerializeField] private GameObject jumpscare;
+    [SerializeField] public GameObject jumpscare;
     [SerializeField] private GameObject sounds;
 
 
@@ -78,7 +78,7 @@ public class SanityManager : MonoBehaviour
 
         if(currentSanity < 0)
         {
-            StartCoroutine(Delay());
+            StartCoroutine(Jumpscare());
             sounds.SetActive(false);
             chaseMusic.SetActive(false);
         }
@@ -101,7 +101,7 @@ public class SanityManager : MonoBehaviour
         hasPlayedSound = false;
     }
 
-    IEnumerator Delay()
+    public IEnumerator Jumpscare()
     {
         jumpscare.SetActive(true);
         yield return new WaitForSeconds(5f);

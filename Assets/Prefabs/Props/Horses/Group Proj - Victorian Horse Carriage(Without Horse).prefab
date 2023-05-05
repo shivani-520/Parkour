@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5798015560314755401}
   - component: {fileID: 8616027270893497731}
   - component: {fileID: 2430777117440189077}
+  - component: {fileID: 4886055678754543893}
   m_Layer: 0
   m_Name: Group Proj - Victorian Horse Carriage(Without Horse)
   m_TagString: Untagged
@@ -103,3 +104,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a591b81a7a3a01740960758e1759fa36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &4886055678754543893
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7823521485267455062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1550514412580984892, guid: 87a06bd2b4f1d214386a0e165f22b13f, type: 3}

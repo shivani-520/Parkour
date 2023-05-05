@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RestartScene.unity
     guid: a1123942fa5374e47a581da5273533f0
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 8ddff5533b6844e43b3d4ab22eabceb9
   m_configObjects: {}

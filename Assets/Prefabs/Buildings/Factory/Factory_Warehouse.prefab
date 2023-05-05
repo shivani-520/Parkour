@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 884911514311211581}
   - component: {fileID: 1487830747474654251}
   - component: {fileID: 2032645075296355364}
-  m_Layer: 0
+  - component: {fileID: 5552657755254043485}
+  m_Layer: 6
   m_Name: Chimney1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5552657755254043485
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394896179163927972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8099326123852661390, guid: 8e93fa5b458939941ba66c5a8a5c88c9, type: 3}
 --- !u!1 &2960957824930020862
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +109,8 @@ GameObject:
   - component: {fileID: 8657167344591799994}
   - component: {fileID: 1950744706369381263}
   - component: {fileID: 2751401206824801946}
-  m_Layer: 0
+  - component: {fileID: 6786490516792616214}
+  m_Layer: 6
   m_Name: Chimney4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +182,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6786490516792616214
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2960957824930020862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 64841065596462188, guid: 8e93fa5b458939941ba66c5a8a5c88c9, type: 3}
 --- !u!1 &3775963292120106907
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4552358806994787617}
   - component: {fileID: -3562813005712363495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Factory_Warehouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +256,8 @@ GameObject:
   - component: {fileID: 4045751420953264209}
   - component: {fileID: 2478012186976813158}
   - component: {fileID: 47847949890722367}
-  m_Layer: 0
+  - component: {fileID: 8319855825346874516}
+  m_Layer: 6
   m_Name: Chimney2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,6 +329,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8319855825346874516
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057039581596640684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8208281084982785965, guid: 8e93fa5b458939941ba66c5a8a5c88c9, type: 3}
 --- !u!1 &4685869035318987738
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +354,8 @@ GameObject:
   - component: {fileID: 4065361520278597253}
   - component: {fileID: 6955278696852494427}
   - component: {fileID: 6436497269810775042}
-  m_Layer: 0
+  - component: {fileID: 6485078647381022226}
+  m_Layer: 6
   m_Name: Chimney3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,6 +427,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6485078647381022226
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4685869035318987738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8538123260043883122, guid: 8e93fa5b458939941ba66c5a8a5c88c9, type: 3}
 --- !u!1 &5894894228021944857
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +452,8 @@ GameObject:
   - component: {fileID: 625074910021924387}
   - component: {fileID: 6183044251406414934}
   - component: {fileID: 6687172121900556668}
-  m_Layer: 0
+  - component: {fileID: 622942447386450074}
+  m_Layer: 6
   m_Name: Factory/Warehouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,3 +530,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &622942447386450074
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5894894228021944857}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -543582681141388088, guid: 8e93fa5b458939941ba66c5a8a5c88c9, type: 3}

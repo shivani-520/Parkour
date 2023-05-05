@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 3305.3496
+  m_Intensity: 1196.4445
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -588,7 +588,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3305.3496
+  m_Intensity: 1196.4445
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5567,7 +5567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118528519}
   m_LocalRotation: {x: 0.061523154, y: -0, z: -0, w: 0.9981057}
-  m_LocalPosition: {x: 0, y: 40.4, z: 135}
+  m_LocalPosition: {x: 0, y: 28, z: 133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7091,7 +7091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
     albedo: {r: 1, g: 1, b: 1, a: 1}
-    meanFreePath: 40
+    meanFreePath: 80
     anisotropy: 0
     volumeMask: {fileID: 0}
     textureScrollingSpeed: {x: 0, y: 0, z: 0}
@@ -9049,8 +9049,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -380}
-  m_SizeDelta: {x: 1157.7471, y: 352.4482}
+  m_AnchoredPosition: {x: -12, y: -380}
+  m_SizeDelta: {x: 1312.5024, y: 352.4482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806272462
 MonoBehaviour:
@@ -9072,7 +9072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Escape Mr Hyde
+  m_text: Reach the boat to escape mr hyde
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e184afacef97763469bd7c0b68573329, type: 2}
   m_sharedMaterial: {fileID: 293128600185282266, guid: e184afacef97763469bd7c0b68573329,
@@ -14001,8 +14001,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 5}
-  m_SizeDelta: {x: 1130.054, y: 352.4482}
+  m_AnchoredPosition: {x: -2, y: 5}
+  m_SizeDelta: {x: 1259.0168, y: 352.4482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1980416967
 MonoBehaviour:
@@ -14024,7 +14024,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Escape Mr Hyde
+  m_text: Reach the boat to escape mr hyde
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e184afacef97763469bd7c0b68573329, type: 2}
   m_sharedMaterial: {fileID: 293128600185282266, guid: e184afacef97763469bd7c0b68573329,
@@ -15197,6 +15197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218516215164340944, guid: d9489b14adec87e4885057705e9fa49f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8764512325709357038, guid: d9489b14adec87e4885057705e9fa49f,
         type: 3}
