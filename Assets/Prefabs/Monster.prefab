@@ -169,7 +169,7 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -191,7 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 0.5
   maxDistance: 2
-  sanityRadius: 8
+  sanityRadius: 10
+  jumpscareRadius: 2
   player: {fileID: 0}
   sanityLogic: {fileID: 0}
   jumpscare: {fileID: 0}
