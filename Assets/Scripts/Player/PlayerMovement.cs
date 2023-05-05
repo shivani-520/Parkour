@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public InputMaster inputMaster;
     [SerializeField] private Animator anim;
-    [SerializeField] private AudioClip jumpGrunt;
+    [SerializeField] private AudioClip[] jumpGrunt;
 
     [Header("Movement")]
     float moveSpeed;
@@ -172,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
 
-            SoundManager.instance.PlaySound(jumpGrunt);
+            SoundManager.instance.PlaySound(jumpGrunt[Random.Range(0, jumpGrunt.Length)]);
         }
 
         // start crouching
