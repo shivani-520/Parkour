@@ -89,7 +89,13 @@ public class SanityManager : MonoBehaviour
         }
     }
 
-                                      
+    public IEnumerator Jumpscare()
+    {
+        jumpscare.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("RestartScene");
+    }
+
     public void Shake()
     {
         cam.transform.DOShakePosition(1, 0.1f);
@@ -101,11 +107,5 @@ public class SanityManager : MonoBehaviour
         hasPlayedSound = false;
     }
 
-    public IEnumerator Jumpscare()
-    {
-        jumpscare.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("RestartScene");
-    }
 
 }
