@@ -7,6 +7,12 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private Animator transition;
 
+
+    private void Awake()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
     public void StartButton()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
